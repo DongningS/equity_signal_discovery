@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "equity-signal-discovery"
+version = "0.1.0"
+description = "Cross-sectional signal discovery and ranking in equity markets"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.1.0",
+    "scipy>=1.11.0",
+    "yfinance>=0.2.36",
+    "fredapi>=0.5.1",
+    "requests>=2.31.0",
+    "scikit-learn>=1.4.0",
+    "xgboost>=2.0.3",
+    "lightgbm>=4.3.0",
+    "shap>=0.44.0",
+    "vaderSentiment>=3.3.2",
+    "feedparser>=6.0.11",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "plotly>=5.19.0",
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.0",
+    "tqdm>=4.66.0",
+    "joblib>=1.3.0",
+    "pyarrow>=14.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.28.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
